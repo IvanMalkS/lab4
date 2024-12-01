@@ -1,4 +1,4 @@
-package org.ivan.storage;
+package org.ivan.box;
 
 public class Box<T> {
     private T item;
@@ -12,6 +12,9 @@ public class Box<T> {
     }
 
     public T get() {
+        if (this.item == null) {
+            throw new IllegalStateException("Box is empty");
+        }
         T temp = this.item;
         this.item = null;
         return temp;
